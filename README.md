@@ -9,18 +9,45 @@ Django Nose lint is a [Nose](https://nose.readthedocs.org/en/latest/) plugin tha
 
 - EALL = All of the above
 
-# Install and Configuration
+# Install
 
 `pip install django-nose-lint`
 
-In `settings.py`, add the plugin:
-
-```python
-NOSE_PLUGINS = ('noselint.DjangoNoseLint', )
-```
-
-# Example
+# Run it
 
 ```bash
-./manage.py test --lint=EALL --maxms=1000
+./manage.py test --lint=EALL --maxms=300
+```
+
+# Output
+
+```bash
+Creating test database for alias 'default'...
+.E
+======================================================================
+ERROR: test_one (tests.MyTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/cseibert/projects/django-nose-lint-test/virtualenv/lib/python2.7/site-packages/nose/case.py", line 133, in run
+    self.runTest(result)
+  File "/Users/cseibert/projects/django-nose-lint-test/virtualenv/lib/python2.7/site-packages/nose/case.py", line 151, in runTest
+    test(result)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/unittest/case.py", line 376, in __call__
+    return self.run(*args, **kwds)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/unittest/case.py", line 355, in run
+    result.stopTest(self)
+  File "/Users/cseibert/projects/django-nose-lint-test/virtualenv/lib/python2.7/site-packages/nose/proxy.py", line 180, in stopTest
+    self.plugins.stopTest(self.test)
+  File "/Users/cseibert/projects/django-nose-lint-test/virtualenv/lib/python2.7/site-packages/nose/plugins/manager.py", line 99, in __call__
+    return self.call(*arg, **kw)
+  File "/Users/cseibert/projects/django-nose-lint-test/virtualenv/lib/python2.7/site-packages/nose/plugins/manager.py", line 167, in simple
+    result = meth(*arg, **kw)
+  File "/Users/cseibert/projects/django-nose-lint-test/virtualenv/lib/python2.7/site-packages/noselint/__init__.py", line 76, in stopTest
+    raise DeprecationWarning('DjangoNoseLint Error: ESLO - test took %s ms' % delta_ms)
+DeprecationWarning: DjangoNoseLint Error: ESLO - test took 1101 ms
+
+----------------------------------------------------------------------
+Ran 1 test in 1.104s
+
+FAILED (errors=1)
 ```
