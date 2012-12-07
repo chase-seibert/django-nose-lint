@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='django-nose-lint',
-    version='0.1',
+    version='0.1.1',
     author='Chase Seibert',
     author_email='chase.seibert@gmail.com',
     packages=['noselint'],
