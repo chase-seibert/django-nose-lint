@@ -51,3 +51,7 @@ Ran 1 test in 1.104s
 
 FAILED (errors=1)
 ```
+
+# More info
+
+I have posted a quickstart guide on [my blog](http://chase-seibert.github.com/blog/2012/12/07/django-nose-lint.html).
